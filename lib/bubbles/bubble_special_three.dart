@@ -69,12 +69,10 @@ class BubbleSpecialThree extends StatelessWidget {
     return Align(
       alignment: isSender ? Alignment.topRight : Alignment.topLeft,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+        padding: const EdgeInsets.all(16),
         child: CustomPaint(
           painter: _SpecialChatBubbleThree(
-              color: color,
-              alignment: isSender ? Alignment.topRight : Alignment.topLeft,
-              tail: tail),
+              color: color, alignment: isSender ? Alignment.topRight : Alignment.topLeft, tail: tail),
           child: Container(
             constraints: constraints ??
                 BoxConstraints(
@@ -88,9 +86,8 @@ class BubbleSpecialThree extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Padding(
-                  padding: stateTick
-                      ? const EdgeInsets.only(left: 4, right: 20)
-                      : const EdgeInsets.only(left: 4, right: 4),
+                  padding:
+                      stateTick ? const EdgeInsets.only(left: 4, right: 20) : const EdgeInsets.only(left: 4, right: 4),
                   child: Text(
                     text,
                     style: textStyle,
@@ -156,15 +153,13 @@ class _SpecialChatBubbleThree extends CustomPainter {
         path.lineTo(w - _radius * 3, h);
 
         /// bottom-right bubble curve
-        path.quadraticBezierTo(
-            w - _radius * 1.5, h, w - _radius * 1.5, h - _radius * 0.6);
+        path.quadraticBezierTo(w - _radius * 1.5, h, w - _radius * 1.5, h - _radius * 0.6);
 
         /// bottom-right tail curve 1
         path.quadraticBezierTo(w - _radius * 1, h, w, h);
 
         /// bottom-right tail curve 2
-        path.quadraticBezierTo(
-            w - _radius * 0.8, h, w - _radius, h - _radius * 1.5);
+        path.quadraticBezierTo(w - _radius * 0.8, h, w - _radius, h - _radius * 1.5);
 
         /// right line
         path.lineTo(w - _radius, _radius * 1.5);
@@ -228,8 +223,7 @@ class _SpecialChatBubbleThree extends CustomPainter {
         path.quadraticBezierTo(_radius * .8, h, 0, h);
 
         /// bottom-right tail curve 2
-        path.quadraticBezierTo(
-            _radius * 1, h, _radius * 1.5, h - _radius * 0.6);
+        path.quadraticBezierTo(_radius * 1, h, _radius * 1.5, h - _radius * 0.6);
 
         /// bottom-left bubble curve
         path.quadraticBezierTo(_radius * 1.5, h, _radius * 3, h);
